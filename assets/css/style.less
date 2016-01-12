@@ -1,0 +1,292 @@
+@white      : #fff;
+@black      : #000;
+@dark-gray  : #282829;
+@light-gray : #7E7E7E;
+@nav-ul-ul  : rgba(40, 40, 41, 0.75);
+
+@screen-lg : 1200px;
+@screen-md : 992px;
+@screen-sm : 768px;
+@screen-xs : 480px;
+@screen-md-max: 1199px;
+@screen-sm-max: 991px;
+@screen-xs-max: 767px;
+
+
+.hidden-element {
+	display    : none !important;
+	visibility : hidden !important;
+}
+
+@media( min-width : @screen-lg  ) {
+	.hidden-lg, .visible-xs, .visible-sm, .visible-md {
+		.hidden-element;
+	}
+}
+@media( min-width : @screen-md  ) and ( max-width : @screen-md-max ) {
+	.hidden-md, .visible-xs, .visible-sm, .visible-lg {
+		.hidden-element;
+	}
+}
+@media( min-width : @screen-sm  ) and ( max-width : @screen-sm-max ) {
+	.hidden-sm, .visible-xs, .visible-md, .visible-lg {
+		.hidden-element;
+	}
+}
+@media( max-width : @screen-xs-max ) {
+	.hidden-xs, .visible-sm, .visible-md, .visible-lg {
+		.hidden-element;
+	}
+}
+
+body {
+	margin      : 0;
+	font-family : 'Merriweather', serif;
+	font-size   : 12px;
+}
+
+h1, h2, h3, h4, h5 {
+	font-family : 'Raleway', sans-serif;
+}
+
+.clearfix {
+	clear : both;
+
+	&:before, &:after {
+		clear   : both;
+		display : table;
+		content : " ";
+	}
+}
+
+.float-left {
+	float : left;
+}
+
+.float-right {
+	float : right;
+}
+
+.row {
+	margin-left  : 15px;
+	margin-right : 15px;
+}
+.row-padding {
+	padding-left  : 15px;
+	padding-right : 15px;
+}
+
+.img-circle {
+	border-radius: 50%;
+}
+
+figure {
+	margin : 10px 25px;
+}
+
+header {
+	background-color : @black;
+	height           : 400px;
+	width            : 100%;
+	color            : white;
+	background       : url( '/assets/img/header-bg.png' ) no-repeat fixed;
+	background-size  : 156%;
+
+	section {
+		padding : 10px 0px;
+		.row;
+	}
+
+	a {
+		color : white;
+	}
+
+	.logo-container {
+		width : 40%;
+		float : left;
+
+		.logo {
+			font-size   : 31px;
+			float       : left;
+			line-height : 22px;
+			color       : black;
+		}
+
+		.logo-brand {
+			font-family : 'Raleway', sans-serif;
+			height      : 45px;
+			width       : 45px;
+			position    : absolute;
+			overflow    : hidden;
+			padding     : 10px;
+			background  : white;
+		}
+
+		.logo-name {
+			font-family : 'Raleway', sans-serif;
+			font-size   : 30px;
+			margin-left : 80px;
+			margin-top  : 12px;
+		}
+	}
+
+	nav.navbar {
+		width      : 425px;
+		float      : right;
+		margin-top : 16px;
+
+		ul {
+			padding       : 0 2px;
+			border-radius : 2px;
+			list-style    : none;
+			position      : relative;
+			top           : -12px;
+			display       : inline-table;
+			z-index       : 20;
+
+			&:after {
+					content : "";
+					clear   : both;
+					display : block;
+			}
+
+			li {
+				float : left;
+
+				a {
+					display         : block;
+					padding         : 7px 15px;
+					text-decoration : none;
+				}
+			}
+		}
+	}
+
+	@media( max-width : @screen-xs-max ) {
+		nav.navbar {
+			width : 100px;
+		}
+
+		.logo-container {
+			width : 60%;
+		}
+	}
+
+	@media( max-width : 515px ) {
+		.logo-container .logo-name {
+			.hidden-element;
+		}
+	}
+}
+
+@media( max-width : @screen-xs-max )  {
+	header {
+		height : 230px;
+	}
+}
+
+main {
+	margin : 0 auto;
+
+	.page {
+		margin: 45px 75px;
+	}
+
+	aside {
+		float      : left;
+		position   : relative;
+		background : @white;
+		width      : 230px;
+		z-index    : 10;
+
+		section {
+			margin        : 0px 15px;
+			border-bottom : 1px solid @light-gray;
+
+			.description {
+				padding : 10px 0px;
+			}
+		}
+	}
+
+	article {
+		margin-left : 240px;
+
+		.img-list {
+			width  : 100%;
+			margin : 0 auto;
+
+			.img-li {
+				width  : 30%;
+				float  : left;
+				margin : 10px;
+
+				img {
+					max-width: 100%;
+					max-height: 100%;
+				}
+			}
+		}
+
+		@media( min-width : @screen-sm  ) and ( max-width : @screen-sm-max ) {
+			.img-list .img-li {
+				width : 25%;
+			}
+		}
+	}
+
+	@media( max-width : @screen-xs-max ) {
+		article {
+			margin-left : 0px;
+		}
+
+		aside {
+			float : none;
+		}
+	}
+}
+
+footer {
+	clear : both;
+
+	.footnote {
+		margin         : 0 auto;
+		background     : @dark-gray;
+		color          : @white;
+		min-height     : 225px;
+		padding-top    : 25px;
+		padding-bottom : 25px;
+		.row-padding;
+
+		.about-us {
+			width : 70%;
+			float : left;
+			.row-padding;
+
+			h3 {
+				color : @light-gray;
+			}
+		}
+
+		.contact {
+			width : 20%;
+			float : left;
+			.row-padding;
+
+			h3 {
+				color : @light-gray;
+			}
+		}
+	}
+
+	.copyright {
+		clear      : both;
+		background : @black;
+		color      : @light-gray;
+
+		section {
+			padding : 15px;
+			.row;
+		}
+	}
+}
